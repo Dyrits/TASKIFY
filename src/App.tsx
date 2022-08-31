@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC, FormEvent, useState } from "react";
 
-function App() {
+import "./App.css";
+
+import Task from "./model";
+
+import Input from "./components/Input";
+import TaskList from "./components/TaskList";
+
+const App: FC = () => {
+  const [task, setTask] = useState<string>(String());
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const addTask = ($event: FormEvent): void => {
+    $event.preventDefault();
+    const $task = task.trim();
+    if ($task) {
+      setTasks([...tasks, { id: Date.now(), task: $task, isCompleted: false }]);
+      setTask(String());
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1 className="Heading">Taskify</h1>
+        <Input task={ task } setTask={ setTask } addTask={ addTask } />
+        <TaskList tasks={ tasks } />
     </div>
   );
 }
