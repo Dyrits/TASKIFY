@@ -2,7 +2,8 @@ import Task from "../model";
 
 const TaskList = ({ tasks }: { tasks: Task[] }) => {
   return (
-    <div></div>
+    <div>
+    </div>
   );
 }
 
