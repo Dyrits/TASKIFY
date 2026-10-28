@@ -6,7 +6,7 @@ A simple task list application built with React and TypeScript.
 
 Taskify lets you add tasks through an input field and displays them in a list. Each task is modeled with an id, a label, and a completion flag.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was built following a Roadside Coder tutorial (per the repository's original description), and was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### Built With
 
